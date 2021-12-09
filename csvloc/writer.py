@@ -1,5 +1,5 @@
 from csv import DictWriter
-from typing import Collection, Dict, TextIO
+from typing import Collection, TextIO
 
 from .types import TranslationDict
 
@@ -12,7 +12,7 @@ def write_csv(f: TextIO, values: TranslationDict) -> None:
         writer.writerow({"id": translation_id, **values})
 
 
-def _find_field_names(values: Dict[str, Dict[str, str]]) -> Collection[str]:
+def _find_field_names(values: TranslationDict) -> Collection[str]:
     field_names = {"id": None}
     for value in values.values():
         for field_name in value.keys():
