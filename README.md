@@ -4,8 +4,14 @@
 [![codecov](https://codecov.io/gh/jmp/csvloc/branch/master/graph/badge.svg?token=MEIHEJBWN9)](https://codecov.io/gh/jmp/csvloc)
 
 Merge localizable strings/translations spread across several
-CSV files into a single CSV file, for use with tools like
-[strgen][strgen]
+CSV files into a single CSV file.
+
+It can be used in combination with tools like [strgen][strgen] to
+share translations between Android and iOS mobile apps. The CSV files
+containing the translations can be kept in their own files and
+managed with a system like [Weblate][weblate]. Once translated,
+the files can be merged with `csvloc` and then ran through `strgen`
+to create native translations for Android and iOS.
 
 ## Installation
 
@@ -37,3 +43,4 @@ CSV file with all the translations merged:
     anotherId,Another translation,Toinen käännös
 
 [strgen]: https://github.com/daisuke-t-jp/strgen
+[weblate]: https://weblate.org/
