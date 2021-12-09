@@ -29,7 +29,7 @@ containing string identifiers and the corresponding translations:
    anotherId,Toinen käännös
    ```
 
-Run `csvloc en-US.csv fi-FI.csv` will produce a single
+Running `csvloc en-US.csv fi-FI.csv` will produce a single
 CSV file with all the translations merged:
 
     id,en-US,fi-FI
