@@ -1,7 +1,12 @@
 from pathlib import Path
-from subprocess import run
+from subprocess import DEVNULL, run
 
 from pytest import CaptureFixture
+
+
+def test_runs_successfully_when_invoked_via_module() -> None:
+    result = run(["python", "-m", "csvloc", "-h"], stdout=DEVNULL, stderr=DEVNULL)
+    assert result.returncode == 0
 
 
 def test_usage_is_printed_to_stderr_when_no_arguments_are_given(
