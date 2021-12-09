@@ -8,13 +8,11 @@ def write_csv(f: TextIO, values: TranslationDict) -> None:
     field_names = _find_field_names(values)
     writer = DictWriter(f, field_names)
     writer.writeheader()
-    for translation_id, values in values.items():
-        writer.writerow({"id": translation_id, **values})
+    writer.writerows({"id": key, **value} for key, value in values.items())
 
 
 def _find_field_names(values: TranslationDict) -> Collection[str]:
-    field_names = {"id": None}
+    field_names = {"id": ""}
     for value in values.values():
-        for field_name in value.keys():
-            field_names[field_name] = None
+        field_names.update(value)
     return field_names.keys()
